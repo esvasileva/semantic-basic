@@ -4,9 +4,7 @@ Basic semantic-release environment
 
 # Branching strategy
 
-The most applicable branching strategy is [Trunk Based Development](https://trunkbaseddevelopment.com/).
-
-Simple:
+Branching strategy is [Trunk Based Development](https://trunkbaseddevelopment.com/):
 
 ```mermaid
 gitGraph
@@ -27,34 +25,6 @@ gitGraph
     commit
 ```
 
-With [short-lived feature branches](https://trunkbaseddevelopment.com/short-lived-feature-branches/):
-
-```mermaid
-gitGraph
-    commit
-    commit
-    branch release-1
-    checkout release-1
-    commit
-    branch feature
-    checkout feature
-    commit
-    commit
-    checkout release-1
-    merge feature
-    branch fix
-    checkout fix
-    commit
-    checkout release-1
-    merge fix
-    commit
-    commit
-    checkout main
-    merge release-1
-    commit
-```
-
 Notes:
 
-- Use squash and merge strategy (all commits from child branch are squashed into single one) for feature and fix branches to merge into release branch
-- Use rebase and merge strategy (all commits from release branch are moved to upstream branch) for release branches
+- Use squash and merge strategy (all commits from child branch are squashed into single one) for feature and fix branches to merge into upstream (or trunk, or main)
